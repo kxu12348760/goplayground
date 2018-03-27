@@ -1,3 +1,5 @@
+package construct_square
+
 import "math"
 import "sort"
 
@@ -211,7 +213,7 @@ func generateRemainingDigitsToAssign(current []int, idx int, itemToSkipOnce int)
     return remainingDigitsToAssign
 }
 
-func genNextPermutation(current []int, sortedUnique []int) []int {
+func GenNextPermutation(current []int, sortedUnique []int) []int {
     var currentLen int = len(current)
     var nextPermutation = make([]int, currentLen)
     var lastDecreasingIdx = getLastDecreasingIdx(current)
@@ -289,7 +291,7 @@ func constructSquare(s string) int {
         var innerCondition bool = true
         copy(charCountsCondensedCopy, charCountsCondensed)
         for (innerCondition) {
-            charCountsCondensedCopy = genNextPermutation(charCountsCondensedCopy, uniqueCharCounts)
+            charCountsCondensedCopy = GenNextPermutation(charCountsCondensedCopy, uniqueCharCounts)
 
             var candidateNumber = generateCandidateNumber(charCountsCondensedCopy, digits)
 
